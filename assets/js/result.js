@@ -17,7 +17,7 @@
             isSmoke.textContent = result.isSmoke
             tr.appendChild(isSmoke)
             const cigarBrand = document.createElement('td')
-            cigarBrand.textContent = result['cigar-brand']
+            cigarBrand.textContent = result['cigarBrand']
             tr.appendChild(cigarBrand)
     
             tbody.appendChild(tr)
