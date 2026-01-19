@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Survey Perokok |</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            background: rgb(240, 235, 248);
+        }
+
+        header {
+            padding: 1rem;
+        }
+
+        header .card {
+            border-top: 10px solid rgb(103, 58, 183);
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        input {
+            border: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            outline: 0;
+        }
+
+        input:focus-visible {
+            border: 0;
+            border-bottom: 1px solid rgb(103, 58, 183);
+        }
+
+        .container {
+            max-width: 768px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .card {
+            background: #FFFFFF;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-container {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .alert {
+            color: red;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        button[type="submit"] {
+            width: fit-content;
+            background: rgb(103, 58, 183);
+            color: white;
+            padding: 1rem;
+            border: 0;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button[type="reset"] {
+            width: fit-content;
+            color: rgb(103, 58, 183);
+            padding: 1rem;
+            border: 0;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        table{
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table * {   
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="card">
+                <div class="card-header">
+                    <h1>Hasil Form Survey Perokok</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, blanditiis.</p>
+                </div>
+                <div class="card-body">
+
+                </div>
+
+            </div>
+        </header>
+        <main>
+            <section id="form-result">
+                <div class="card">
+                    <div class="card-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fullname</th>
+                                    <th>Age</th>
+                                    <th>Jenis kelamin</th>
+                                    <th>Perokok</th>
+                                    <th>Merk rokok yang pernah dicoba</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const data = JSON.parse(window.localStorage.getItem('survey-result'))
+        const tbody = document.querySelector('table tbody')
+
+        data.forEach(
+            result => {
+                const tr = document.createElement('tr')
+                const fullname = document.createElement('td')
+                fullname.textContent = result.fullname
+                tr.appendChild(fullname)
+                const age = document.createElement('td')
+                age.textContent = result.age
+                tr.appendChild(age)
+                const gender = document.createElement('td')
+                gender.textContent = result.gender
+                tr.appendChild(gender)
+                const isSmoke = document.createElement('td')
+                isSmoke.textContent = result.isSmoke
+                tr.appendChild(isSmoke)
+                const cigarBrand = document.createElement('td')
+                cigarBrand.textContent = result['cigar-brand']
+                tr.appendChild(cigarBrand)
+
+                tbody.appendChild(tr)
+            }
+        )
+    </script>
+</body>
+
+</html>
