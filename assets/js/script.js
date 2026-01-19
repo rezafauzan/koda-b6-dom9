@@ -13,6 +13,6 @@ formsp.addEventListener('submit',
         result.push(data)
         data.cigarBrand = formData.getAll('cigarBrand')
         window.localStorage.setItem('survey-result', JSON.stringify(result))
-        // window.location.href = 'result.html'
+        window.location.href = 'result.html'
     }
 )
